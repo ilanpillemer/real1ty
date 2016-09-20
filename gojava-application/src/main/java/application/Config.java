@@ -34,7 +34,7 @@ public class Config {
 	//You should change this name to avoid confusion with other sample rooms registered with Game On.
     private final String name = "a_host_of_golden_daffodils";
     private final String fullName = "rEaLItY";
-    private final String description = "In the centre of the room is bare table. On the table is a laptop, a wallet, a pointy thing and an old sad dying rabbit drinking a glass of wine. Thursday Next is leaning against the wall, laughing about something.";
+    private final String description = "In the centre of the very very normal room is bare table. On the table is a laptop, a wallet, a pointy thing and an old sad dying rabbit drinking a glass of wine. Thursday Next is leaning against the wall, laughing about something.";
 	
     //default registration is with the live site, although this can be changed via environment variables
     private String registrationUrl = "https://game-on.org/map/v1/sites";
