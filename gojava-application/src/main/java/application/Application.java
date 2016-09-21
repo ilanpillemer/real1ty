@@ -77,6 +77,9 @@ public class Application implements ServletContextListener {
     private final static String EXIT_ID = "exitId";
     private final static String FULLNAME = "fullName";
     private final static String DESCRIPTION = "description";
+
+    private final static String KEY_COMMANDS = "commands";
+    private final static String KEY_ROOM_INVENTORY = "roomInventory";
     
     private Config config = new Config();
     
@@ -182,6 +185,19 @@ public class Application implements ServletContextListener {
     // Room methods..
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    private void addObjects(JsonObjectBuilder responseBuilder) {
+        JsonArrayBuilder objs = Json.createArrayBuilder();
+        objs.add("A maiden's tail");
+        responseBuilder.add(KEY_ROOM_INVENTORY, objs.build());
+    }
+    
+    private void addCommands(JsonObjectBuilder responseBuilder) {
+        JsonObjectBuilder content = Json.createObjectBuilder();
+        content.add("/stagger", "stagger about");
+        responseBuilder.add(KEY_COMMANDS, content.build());
+    }
+
+
     // add a new player to the room
     private void addNewPlayer(Session session, String json) throws IOException {
         if (session.getUserProperties().get(USERNAME) != null) {
@@ -193,7 +209,7 @@ public class Application implements ServletContextListener {
 
         if (playersInRoom.add(userid)) {
             // broadcast that the user has entered the room
-            sendMessageToRoom(session, "Player " + username + " has entered the room and shrunk down to a verm small size, bewildered.", "You have entered the room and shrunk down to a verm small size. You feel bewildered.",
+            sendMessageToRoom(session, "Player " + username + " has entered the room and shrunk down to a very small size, bewildered.", "You have entered the room and shrunk down to a verm small size. You feel bewildered.",
                     userid);
 
             // now send the room info
@@ -204,6 +220,10 @@ public class Application implements ServletContextListener {
             response.add(NAME, config.getName());
             response.add(FULLNAME, config.getFullname());
             response.add(DESCRIPTION, config.getDescription());
+
+	    addCommands(response);
+            addObjects(response);
+	    
             sendRemoteTextMessage(session, "player," + userid + "," + response.build().toString());
         }
     }
