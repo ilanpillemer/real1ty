@@ -81,6 +81,7 @@ public class Application implements ServletContextListener {
 
     private final static String KEY_COMMANDS = "commands";
     private final static String KEY_ROOM_INVENTORY = "roomInventory";
+    private final static String TAIL = "A maiden's tail";
     
     private Config config = new Config();
     
@@ -188,7 +189,7 @@ public class Application implements ServletContextListener {
 
     private void addObjects(JsonObjectBuilder responseBuilder) {
         JsonArrayBuilder objs = Json.createArrayBuilder();
-        objs.add("A maiden's tail");
+        objs.add(TAIL);
         responseBuilder.add(KEY_ROOM_INVENTORY, objs.build());
     }
     
@@ -293,6 +294,20 @@ public class Application implements ServletContextListener {
             return;
         }
 
+
+	if (lowerContent.startsWith("/examine") ) {
+            if(lowerContent.contains(TAIL)) {
+                String response = "A book that contains not only a story but also your memories around that story when it got entangled with your life.";
+                sendMessageToRoom(session, null, response, userid);
+                return;
+            }
+        }
+
+	if (lowerContent.startsWith("/inventory") ) {
+                String response = "A life, some memories and a ticking clock counting down.";
+                sendMessageToRoom(session, null, response, userid);
+                return;
+        }
         // reject all unknown commands
         if (lowerContent.startsWith("/")) {
             sendMessageToRoom(session, null, "Unrecognised command - sorry :-(", userid);
