@@ -190,7 +190,7 @@ public class Application implements ServletContextListener {
 
         if (playersInRoom.add(userid)) {
             // broadcast that the user has entered the room
-            sendMessageToRoom(session, "Player " + username + " has entered the room", "You have entered the room",
+            sendMessageToRoom(session, "Player " + username + " has entered the room and shrunk down to a verm small size, bewildered.", "You have entered the room and shrunk down to a verm small size. You feel bewildered.",
                     userid);
 
             // now send the room info
@@ -236,6 +236,14 @@ public class Application implements ServletContextListener {
             response.add(DESCRIPTION, config.getDescription());
 
             sendRemoteTextMessage(session, "player," + userid + "," + response.build().toString());
+            return;
+        }
+
+	 String examine = "/examine ";
+        if(lowerContent.startsWith(examine)) {
+            String item = lowerContent.substring(examine.length());
+	    EventBuilder.playerEvent(Collections.singletonList(session), userid, "Everyone keep calm, nobody move.", null);
+            //System.out.println("Sending content back to player");
             return;
         }
 
