@@ -81,7 +81,7 @@ public class Application implements ServletContextListener {
 
     private final static String KEY_COMMANDS = "commands";
     private final static String KEY_ROOM_INVENTORY = "roomInventory";
-    private final static String TAIL = "A maiden's tail";
+    private final static String TAIL = "a maiden's tail";
     
     private Config config = new Config();
     
