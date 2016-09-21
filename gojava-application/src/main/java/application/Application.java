@@ -51,7 +51,7 @@ import org.gameontext.util.reg.RegistrationUtility;
 import org.gameontext.util.reg.RegistrationUtility.HTTP_METHOD;
 
 // hackity
-import net.wasdev.gameon.protocol.EventBuilder;
+
 
 /**
  * A very simple room.
@@ -242,13 +242,13 @@ public class Application implements ServletContextListener {
             return;
         }
 
-	 String examine = "/examine ";
-        if(lowerContent.startsWith(examine)) {
-            String item = lowerContent.substring(examine.length());
-	    EventBuilder.playerEvent(Collections.singletonList(session), userid, "Everyone keep calm, nobody move.", null);
-            //System.out.println("Sending content back to player");
-            return;
-        }
+	//  String examine = "/examine ";
+        // if(lowerContent.startsWith(examine)) {
+        //     String item = lowerContent.substring(examine.length());
+	//     EventBuilder.playerEvent(Collections.singletonList(session), userid, "Everyone keep calm, nobody move.", null);
+        //     //System.out.println("Sending content back to player");
+        //     return;
+        // }
 
         if (lowerContent.startsWith("/go")) {
 
