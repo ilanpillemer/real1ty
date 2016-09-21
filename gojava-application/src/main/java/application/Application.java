@@ -295,19 +295,20 @@ public class Application implements ServletContextListener {
         }
 
 
-	if (lowerContent.startsWith("/examine") ) {
-            if(lowerContent.contains(TAIL)) {
-                String response = "A book that contains not only a story but also your memories around that story when it got entangled with your life.";
-                sendMessageToRoom(session, null, response, userid);
-                return;
-            }
-        }
+	// if (lowerContent.startsWith("/examine") ) {
+        //     if(lowerContent.contains(TAIL)) {
+        //         String response = "A book that contains not only a story but also your memories around that story when it got entangled with your life.";
+        //         sendMessageToRoom(session, null, response, userid);
+        //         return;
+        //     }
+        // }
 
-	if (lowerContent.startsWith("/inventory") ) {
-                String response = "A life, some memories and a ticking clock counting down.";
-                sendMessageToRoom(session, null, response, userid);
-                return;
-        }
+	// if (lowerContent.startsWith("/inventory") ) {
+        //         String response = "A life, some memories and a ticking clock counting down.";
+        //         sendMessageToRoom(session, null, response, userid);
+        //         return;
+        // }
+	
         // reject all unknown commands
         if (lowerContent.startsWith("/")) {
             sendMessageToRoom(session, null, "Unrecognised command - sorry :-(", userid);
