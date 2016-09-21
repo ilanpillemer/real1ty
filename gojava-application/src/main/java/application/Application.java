@@ -308,6 +308,13 @@ public class Application implements ServletContextListener {
                 sendMessageToRoom(session, null, response, userid);
                 return;
         }
+
+	if (lowerContent.startsWith("/stagger") ) {
+                String response = "You stagger about, in a nonchalant way.";
+                sendMessageToRoom(session, null, response, userid);
+                return;
+        }
+
 	
         // reject all unknown commands
         if (lowerContent.startsWith("/")) {
