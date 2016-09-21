@@ -50,6 +50,9 @@ import javax.websocket.server.ServerEndpoint;
 import org.gameontext.util.reg.RegistrationUtility;
 import org.gameontext.util.reg.RegistrationUtility.HTTP_METHOD;
 
+// hackity
+import net.wasdev.gameon.protocol.EventBuilder;
+
 /**
  * A very simple room.
  * 
