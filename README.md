@@ -1,9 +1,8 @@
 # Microservices with a Game On! Room
 
-## Are you at JavaOne 2016?
+## Were you at JavaOne 2016?
 
-Customize your room between now and Wednesday (21 Sept 2016) and win prizes!
-It's as easy as linking rooms you create with the JavaOne contest. 
+This room was built during JavaOne 2016. 
 For more information: http://bit.ly/gameonjone2016  
 
 ----
@@ -20,6 +19,8 @@ You can learn more about Game On! at [http://game-on.org/](http://game-on.org/).
 ## Introduction
 
 This walkthrough will guide you through creating and deploying a microservice that adds a simple room to the running Game On! microservices application.  You will be shown how to setup a room that is implemented in the Java programming language using Websphere Liberty and (a) deployed as a Cloud Foundry application in Bluemix, or (b) as a docker container that can be run locally or published to the IBM Container Service in Bluemix. 
+
+This was done for this room, which is currently available via Bluemix and can be found in Game On!
 
 ### Installation prerequisites
 
