@@ -297,7 +297,7 @@ public class Application implements ServletContextListener {
 
 	if (lowerContent.startsWith("/examine") ) {
             if(lowerContent.contains(TAIL)) {
-                String response = "A book that contains not only a story but also your softer memories around that story when it got entangled with your life.";
+                String response = "A book that contains not only a story but also your softer more hopeful memories around that story when it got entangled with your life.";
                 sendMessageToRoom(session, null, response, userid);
                 return;
             }
